@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>土家锦 · 西兰流韵 </title>
-   
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -32,6 +32,7 @@
             }
         }
     </script>
+
     <style type="text/tailwindcss">
         @layer utilities {
             .text-shadow {
@@ -47,6 +48,7 @@
                 scroll-behavior: smooth;
             }
         }
+
         html, body {
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -54,24 +56,23 @@
         body::-webkit-scrollbar {
             display: none;
         }
-  
+
         ::selection {
             background: #006699;
             color: #F5F0E1;
         }
-   
+
         .split-char {
             will-change: transform, opacity;
         }
- 
     </style>
 </head>
-<body class="bg-daiBeige text-daiDark font-song">
 
- 
+<body class="bg-daiBeige text-daiDark font-song">
     <header class="fixed top-0 w-full bg-tujiaIndigo/95 text-white z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-2xl md:text-3xl font-han font-bold">土家锦 <span class="text-sm md:text-base font-normal">西兰流韵</span></h1>
+
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="../second1.html">返回上一页</a></li>
@@ -82,8 +83,10 @@
                     <li><a href="#analysis" class="hover:text-daiRed transition-colors">消费分析</a></li>
                 </ul>
             </nav>
+
             <button class="md:hidden text-2xl" id="menuBtn"><i class="fa fa-bars"></i></button>
         </div>
+
         <div class="md:hidden hidden bg-daiDark/90 w-full" id="mobileMenu">
             <ul class="px-4 py-2 flex flex-col space-y-3">
                 <li><a href="../second1.html">返回上一页</a></li>
@@ -95,7 +98,6 @@
             </ul>
         </div>
     </header>
-
 
     <section class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('../assets/images/tukaiping.jpg');">
         <div class="absolute inset-0 bg-daiDark/60"></div>
@@ -109,24 +111,22 @@
         </div>
     </section>
 
-   
     <section id="origin" class="py-16 bg-pattern">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center gap-4">
-          <div class="md:w-1/2">
-            <h3 class="text-3xl font-han font-bold text-daiBlue mb-3 pb-2 border-b-2 border-daiRed w-fit split-trigger">土家锦溯源</h3>
-            <p class="text-lg leading-relaxed mb-2">先秦至汉代：土家族先民以麻织"賨布"缴纳赋税，后发展为"阑干细布"，工艺以彩色纬线织就几何纹样为主。</p>
-            <p class="text-lg leading-relaxed mb-2">唐宋时期：纺织业进一步发展，出现"女勤于织、户多机声"的社会风气，土家织锦被汉人称为"溪布""峒布"或"峒锦"。</p>
-            <p class="text-lg leading-relaxed mb-2">元明清时期：湖南、湖北土家先民用丝、棉织"峒锦""峒被"，四川秀山等地以麻织"斑布"。明清时期西兰卡普工艺成熟，成为朝廷贡品，图案多达400余种。</p>
-            <p class="text-lg leading-relaxed mb-2">近现代：20世纪50年代土家族被确定为单一民族后，土家织锦正式定名并恢复发展。1989年《双阳雀》作为国礼赠送给美国前总统布什，2006年"土家族织锦技艺"被列入国家首批非物质文化遗产名录。</p>
-          </div>
-          <div class="md:w-1/2 rounded-lg overflow-hidden shadow-2xl parallax-img">
-            <img src="../assets/images/tujiaimage.jpg" alt="土家锦古织机与老锦布" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
-          </div>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-han font-bold text-daiBlue mb-3 pb-2 border-b-2 border-daiRed w-fit split-trigger">土家锦溯源</h3>
+                    <p class="text-lg leading-relaxed mb-2">先秦至汉代：土家族先民以麻织"賨布"缴纳赋税，后发展为"阑干细布"，工艺以彩色纬线织就几何纹样为主。</p>
+                    <p class="text-lg leading-relaxed mb-2">唐宋时期：纺织业进一步发展，出现"女勤于织、户多机声"的社会风气，土家织锦被汉人称为"溪布""峒布"或"峒锦"。</p>
+                    <p class="text-lg leading-relaxed mb-2">元明清时期：湖南、湖北土家先民用丝、棉织"峒锦""峒被"，四川秀山等地以麻织"斑布"。明清时期西兰卡普工艺成熟，成为朝廷贡品，图案多达400余种。</p>
+                    <p class="text-lg leading-relaxed mb-2">近现代：20世纪50年代土家族被确定为单一民族后，土家织锦正式定名并恢复发展。1989年《双阳雀》作为国礼赠送给美国前总统布什，2006年"土家族织锦技艺"被列入国家首批非物质文化遗产名录。</p>
+                </div>
+                <div class="md:w-1/2 rounded-lg overflow-hidden shadow-2xl parallax-img">
+                    <img src="../assets/images/tujiaimage.jpg" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-
 
     <section id="craft" class="py-20 bg-white">
         <div class="container mx-auto px-4">
@@ -140,7 +140,9 @@
                 <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
                     <div class="w-16 h-16 bg-daiRed rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-paint-brush"></i></div>
                     <h4 class="text-xl font-bold text-center mb-3">主要类型</h4>
-                    <p class="text-center leading-relaxed">土家族织锦主要有两种制作类型：</p><p class="mb-1">• 西兰卡普（土花铺盖）：采用"通经断纬"的挖花技术，分为"对斜"平纹素色系列和"上下斜"斜纹彩色系列两大流派。</p><p class="leading-relaxed">• 花带：采用"通经通纬"的古老"经花"手法，几乎不需专用工具即可在织造者两膝间完成。</p>
+                    <p class="text-center leading-relaxed">土家族织锦主要有两种制作类型：</p>
+                    <p class="mb-1">• 西兰卡普（土花铺盖）：采用"通经断纬"的挖花技术，分为"对斜"平纹素色系列和"上下斜"斜纹彩色系列两大流派。</p>
+                    <p class="leading-relaxed">• 花带：采用"通经通纬"的古老"经花"手法，几乎不需专用工具即可在织造者两膝间完成。</p>
                 </div>
                 <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
                     <div class="w-16 h-16 bg-daiGreen rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-scissors"></i></div>
@@ -156,14 +158,14 @@
         </div>
     </section>
 
-   
     <section id="artisan" class="py-20 bg-pattern">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">匠人故事</h3>
             <p class="text-center text-lg mb-12 max-w-3xl mx-auto">以线织情，以手传艺，一生深耕一事，一世守护非遗</p>
+
             <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
                 <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
-                    <img src="../assets/images/tujiang1.png" alt="土家锦匠人叶水云" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <img src="../assets/images/tujiang1.png" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
                 </div>
                 <div class="md:w-2/3 artisan-text">
                     <h4 class="text-2xl font-bold text-daiRed mb-4">叶水云 · 土家锦非遗传承人</h4>
@@ -172,9 +174,10 @@
                     <p class="text-base md:text-lg leading-relaxed">面对“年轻人不愿学、技艺难传承”等问题，叶水云系统构建教学体系，推动技艺从“指尖记忆”转化为“纸上春秋”。她推动“线上+线下”融合传承，通过数字平台扩大传播，实现“云端活态传承”。引导学生将传统纹样与现代设计结合，开发围巾、眼罩、抱枕等创新产品，促进非遗走进现代生活。</p>
                 </div>
             </div>
+
             <div class="flex flex-col md:flex-row-reverse items-center gap-8">
                 <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
-                    <img src="../assets/images/tujiang2.png" alt="土家锦匠人刘代娥" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <img src="../assets/images/tujiang2.png" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
                 </div>
                 <div class="md:w-2/3 artisan-text">
                     <h4 class="text-2xl font-bold text-daiRed mb-4">刘代娥 · 土家锦非遗传承人</h4>
@@ -187,28 +190,45 @@
     </section>
 
     <div class="w-full h-12 bg-white"></div>
+<section id="BLEND" class="py-20 bg-pattern bg-daiBeige">
+<div class="container mx-auto px-4">   
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>   <style>model-viewer{width:100%;height:600px;}</style>   <!-- 3D模型这块找了好久的库，终于能显示了 --> 
+  <model-viewer src="../assets/images/皮包.glb" auto-rotate camera-controls shadow-intensity="1"></model-viewer>
+ </div> 
+</section>
     <section id="analysis" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">土家锦消费分析</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
                     <h4 class="text-xl font-bold text-daiBlue mb-4">市场概况</h4>
-                    <p class="mb-2 font-semibold">规模特征：</p><p class="mb-3 leading-relaxed">国内市场规模稳步扩大，以湖南湘西、湖北恩施为核心产区，2025年湘西州土家织锦产业年产值已突破1.2亿元，龙头企业“乖幺妹”年产值达9000万元，产品远销全球30多个国家和地区。</p>
-                    <p class="mb-2 font-semibold">政策支持：</p><p class="leading-relaxed">多地政府将土家锦纳入非遗扶持项目，湘西州提供产业贷款超3200万元，推动工坊升级与人才培养。国际市场需求增长，产品进入巴黎时装周、联合国礼品库，文化稀缺性转化为商业价值。</p>
+                    <p class="mb-2 font-semibold">规模特征：</p>
+                    <p class="mb-3 leading-relaxed">国内市场规模稳步扩大，以湖南湘西、湖北恩施为核心产区，2025年湘西州土家织锦产业年产值已突破1.2亿元，龙头企业“乖幺妹”年产值达9000万元，产品远销全球30多个国家和地区。</p>
+                    <p class="mb-2 font-semibold">政策支持：</p>
+                    <p class="leading-relaxed">多地政府将土家锦纳入非遗扶持项目，湘西州提供产业贷款超3200万元，推动工坊升级与人才培养。国际市场需求增长，产品进入巴黎时装周、联合国礼品库，文化稀缺性转化为商业价值。</p>
                 </div>
                 <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
                     <h4 class="text-xl font-bold text-daiBlue mb-4">消费群体与购买场景</h4>
-                    <p class="mb-2 font-semibold">核心人群：</p><p class="mb-1">以文化爱好者、旅行游客、年轻女性为主，其中30-45岁的消费者更关注文化内涵与品质感，学生群体则偏好冰箱贴、挂布等性价比高的文创单品。</p>
-                    <p class="mb-2 font-semibold">购买场景：</p><p class="leading-relaxed">湘西本地线下门店、景区伴手礼采购、电商平台文化主题消费，部分企业用户将其作为商务伴手礼，用于文化交流或客户馈赠。</p>
+                    <p class="mb-2 font-semibold">核心人群：</p>
+                    <p class="mb-1">以文化爱好者、旅行游客、年轻女性为主，其中30-45岁的消费者更关注文化内涵与品质感，学生群体则偏好冰箱贴、挂布等性价比高的文创单品。</p>
+                    <p class="mb-2 font-semibold">购买场景：</p>
+                    <p class="leading-relaxed">湘西本地线下门店、景区伴手礼采购、电商平台文化主题消费，部分企业用户将其作为商务伴手礼，用于文化交流或客户馈赠。</p>
                 </div>
                 <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
                     <h4 class="text-xl font-bold text-daiBlue mb-4">核心销售渠道</h4>
-                    <p class="mb-2 font-semibold">「线下 + 线上 + B 端」三维渠道协同布局</p><p class="mb-3 leading-relaxed">• 线下渠道：以景区门店、非遗工坊、文化体验店为主，同时在北京、上海等城市开设品牌专柜，部分高端产品进入国际奢侈品供应链（如迪奥采购手工披肩）。</p><p class="mb-1">• 线上渠道：电商平台（淘宝、京东）、社交电商（抖音、小红书）及直播带货成为主要增量来源，部分企业通过数字藏品、联名合作拓展年轻消费群体。</p><p class="leading-relaxed">• B端渠道：产品作为政府对外交流礼品、企业商务伴手礼，以及文旅项目定制采购，稳定贡献营收。</p>
+                    <p class="mb-2 font-semibold">「线下 + 线上 + B 端」三维渠道协同布局</p>
+                    <p class="mb-3 leading-relaxed">• 线下渠道：以景区门店、非遗工坊、文化体验店为主，同时在北京、上海等城市开设品牌专柜，部分高端产品进入国际奢侈品供应链（如迪奥采购手工披肩）。</p>
+                    <p class="mb-1">• 线上渠道：电商平台（淘宝、京东）、社交电商（抖音、小红书）及直播带货成为主要增量来源，部分企业通过数字藏品、联名合作拓展年轻消费群体。</p>
+                    <p class="leading-relaxed">• B端渠道：产品作为政府对外交流礼品、企业商务伴手礼，以及文旅项目定制采购，稳定贡献营收。</p>
                 </div>
                 <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
                     <h4 class="text-xl font-bold text-daiBlue mb-4">制约因素与优化方向</h4>
-                    <p class="mb-2 font-semibold">主要问题：</p><p class="mb-1">• 供给端瓶颈：产能限制，传承断层；</p><p class="leading-relaxed">• 市场端痛点：受众较窄，价格认知差异，设计创新不足。</p>
-                    <p class="mb-2 font-semibold">优化建议：</p><p class="mb-1">• 数字化与跨界融合：企业通过3D织机、数字纹样库提升生产效率，同时开发NFT数字藏品、虚拟服饰等新形态，拓展线上场景。与时尚品牌、潮玩IP的联名合作持续升温，如STK潮牌推出西兰卡普服饰系列，进一步破圈传播。</p><p class="leading-relaxed">• 消费场景多元化：从“伴手礼”向“日常消费品”延伸，开发汽车头枕、家居软饰等实用单品，提升产品使用频率与复购率。研学体验、非遗工坊游等业态兴起，通过“体验+销售”模式增强用户粘性。</p>
+                    <p class="mb-2 font-semibold">主要问题：</p>
+                    <p class="mb-1">• 供给端瓶颈：产能限制，传承断层；</p>
+                    <p class="leading-relaxed">• 市场端痛点：受众较窄，价格认知差异，设计创新不足。</p>
+                    <p class="mb-2 font-semibold">优化建议：</p>
+                    <p class="mb-1">• 数字化与跨界融合：企业通过3D织机、数字纹样库提升生产效率，同时开发NFT数字藏品、虚拟服饰等新形态，拓展线上场景。与时尚品牌、潮玩IP的联名合作持续升温，如STK潮牌推出西兰卡普服饰系列，进一步破圈传播。</p>
+                    <p class="leading-relaxed">• 消费场景多元化：从“伴手礼”向“日常消费品”延伸，开发汽车头枕、家居软饰等实用单品，提升产品使用频率与复购率。研学体验、非遗工坊游等业态兴起，通过“体验+销售”模式增强用户粘性。</p>
                 </div>
             </div>
         </div>
@@ -225,23 +245,21 @@
                     <a href="https://weibo.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weibo"></i></a>
                     <a href="https://www.douyin.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-music"></i></a>
                     <a href="https://www.taobao.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-shopping-cart"></i></a>
-                    <img src="../assets/images/校标.jpg" alt="校标" class="w-12 h-auto ml-2 mix-blend-multiply">
                 </div>
             </div>
             <div class="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
-                <p>© 2025 中央民族大学 所制</p>
+                <p>2026织锦载韵项目团队独家出品</p>
                 <p class="mt-2 md:mt-0">本网页仅为土家锦文化展示，所有图片若有侵权请联系</p>
             </div>
         </div>
     </footer>
 
- 
-    <a href="#" class="fixed bottom-8 right-8 bg-daiBlue/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-daiRed transition-colors z-40" id="backToTop"><i class="fa fa-angle-up text-xl"></i></a>
+    <a href="#" class="fixed bottom-8 right-8 bg-daiBlue/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-daiRed transition-colors z-40" id="backToTop">
+        <i class="fa fa-angle-up text-xl"></i>
+    </a>
 
-   
     <script>
         (function() {
-    
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             if (menuBtn && mobileMenu) {
@@ -256,7 +274,6 @@
                 });
             }
 
-   
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('header');
                 if (window.scrollY > 100) {
@@ -279,10 +296,9 @@
 
     <script>
         (function() {
-        
             const lenis = new Lenis({
                 duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 orientation: 'vertical',
                 smoothWheel: true,
             });
@@ -304,25 +320,22 @@
                     const targetEl = document.querySelector(targetId);
                     if (targetEl) {
                         const headerHeight = header ? header.offsetHeight : 0;
-                        const targetPos = targetEl.offsetTop - headerHeight - 10; 
+                        const targetPos = targetEl.offsetTop - headerHeight - 10;
                         lenis.scrollTo(targetPos, { immediate: false, duration: 1.4 });
                     }
                 });
             });
 
-
             gsap.registerPlugin(ScrollTrigger);
 
             document.addEventListener('DOMContentLoaded', () => {
- 
                 const splitTitles = document.querySelectorAll('.split-trigger');
                 splitTitles.forEach(title => {
-             
                     if (title.querySelector('.char')) return;
                     const split = new SplitType(title, { types: 'chars', charClass: 'split-char' });
-         
-                    gsap.set(split.chars, { y: '100%', opacity: 0, rotate: 5 }); 
-           
+
+                    gsap.set(split.chars, { y: '100%', opacity: 0, rotate: 5 });
+
                     ScrollTrigger.create({
                         trigger: title,
                         start: 'top 85%',
@@ -336,7 +349,7 @@
                                 ease: 'power3.out',
                             });
                         },
-                        once: true, 
+                        once: true,
                     });
                 });
 
@@ -353,6 +366,7 @@
                         delay: 0.2,
                     });
                 }
+
                 const heroSub = document.getElementById('heroSubtitle');
                 if (heroSub) {
                     const splitSub = new SplitType(heroSub, { types: 'words' });
@@ -367,10 +381,9 @@
                     });
                 }
 
-  
                 const craftCards = document.querySelectorAll('.craft-card');
                 craftCards.forEach((card, index) => {
-                    gsap.fromTo(card, 
+                    gsap.fromTo(card,
                         { y: 60, opacity: 0 },
                         {
                             y: 0,
@@ -390,7 +403,7 @@
 
                 const productCards = document.querySelectorAll('.product-card');
                 productCards.forEach((card, i) => {
-                    gsap.fromTo(card, 
+                    gsap.fromTo(card,
                         { y: 50, opacity: 0 },
                         {
                             y: 0,
@@ -408,7 +421,7 @@
 
                 const analysisCards = document.querySelectorAll('.analysis-card');
                 analysisCards.forEach((card, i) => {
-                    gsap.fromTo(card, 
+                    gsap.fromTo(card,
                         { y: 40, opacity: 0 },
                         {
                             y: 0,
@@ -423,43 +436,6 @@
                         }
                     );
                 });
-
-                const artisanTexts = document.querySelectorAll('.artisan-text');
-                artisanTexts.forEach((text, idx) => {
-                    gsap.fromTo(text, 
-                        { x: idx % 2 === 0 ? 50 : -50, opacity: 0 },
-                        {
-                            x: 0,
-                            opacity: 1,
-                            duration: 0.9,
-                            scrollTrigger: {
-                                trigger: text,
-                                start: 'top 80%',
-                                once: true,
-                            },
-                        }
-                    );
-                });
-
-       
-                const parallaxImgs = document.querySelectorAll('.parallax-img img, .artisan-img img');
-                parallaxImgs.forEach(img => {
-                    const container = img.parentElement;
-                    gsap.to(img, {
-                        y: () => (container.offsetHeight - img.offsetHeight) * 0.3,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: container,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: 0.6,
-                            invalidateOnRefresh: true,
-                        },
-                    });
-                });
-
-              
-                ScrollTrigger.refresh();
             });
         })();
     </script>

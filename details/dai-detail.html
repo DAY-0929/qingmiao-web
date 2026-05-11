@@ -118,7 +118,7 @@
             <p class="text-lg leading-relaxed mb-2">据文献记载汉时即已织造细布。如今，傣锦工艺在继承民族传统的基础上有了很大发展，傣锦的传统图案被不断发掘整理，并广泛用于筒帕、窗帘、被面、垫单、沙发垫等，芒市城镇及附近村寨涌现了一批傣锦织锦专业户、专业村。</p>
           </div>
           <div class="md:w-1/2 rounded-lg overflow-hidden shadow-2xl parallax-img">
-            <img src="../assets/images/dai-image.jpg" alt="傣锦古织机与老锦布" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
+            <img src="../assets/images/dai-image.jpg" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@
             <p class="text-center text-lg mb-12 max-w-3xl mx-auto">以线为媒，以手为艺，一生择一事，一事守一生</p>
             <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
                 <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
-                    <img src="../assets/images/工匠1.png" alt="傣锦匠人咪宰金" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <img src="../assets/images/工匠1.png" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
                 </div>
                 <div class="md:w-2/3 artisan-text">
                     <h4 class="text-2xl font-bold text-daiRed mb-4">咪宰金 · 傣锦非遗传承人</h4>
@@ -171,7 +171,7 @@
             </div>
             <div class="flex flex-col md:flex-row-reverse items-center gap-8">
                 <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
-                    <img src="../assets/images/工匠2.png" alt="傣锦匠人孔丽" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <img src="../assets/images/工匠2.png" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
                 </div>
                 <div class="md:w-2/3 artisan-text">
                     <h4 class="text-2xl font-bold text-daiRed mb-4"> 孔丽· 傣锦创新人</h4>
@@ -215,6 +215,12 @@
     </section>
 
     <div class="w-full h-12 bg-white"></div>
+    <section id="BLEND" class="py-20 bg-pattern bg-daiBeige">
+<div class="container mx-auto px-4">   
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>   <style>model-viewer{width:100%;height:600px;}</style>   <!-- 3D模型这块找了好久的库，终于能显示了 --> 
+  <model-viewer src="../assets/images/傣锦抱枕.glb" auto-rotate camera-controls shadow-intensity="1"></model-viewer>
+ </div> 
+</section>
 
     <footer class="bg-daiDark text-white py-10">
         <div class="container mx-auto px-4">
@@ -225,11 +231,10 @@
                     <a href="https://weibo.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weibo"></i></a>
                     <a href="https://www.douyin.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-music"></i></a>
                     <a href="https://www.taobao.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-shopping-cart"></i></a>
-                    <img src="../assets/images/校标.jpg" alt="校标" class="w-12 h-auto ml-2 mix-blend-multiply">
                 </div>
             </div>
             <div class="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
-                <p>© 2025 中央民族大学 所制</p>
+                <p>2026织锦载韵项目团队独家出品</p>
                 <p class="mt-2 md:mt-0">本网页仅为傣锦文化展示，所有图片若有侵权请联系</p>
             </div>
         </div>
@@ -254,6 +259,7 @@
                         mobileMenu.classList.add('hidden');
                     });
                 });
+                // 之前手机点完菜单不关，后来加了这个才好
             }
 
    
@@ -273,6 +279,7 @@
                 images.forEach(img => {
                     img.loading = 'lazy';
                 });
+                // 老师说图片要加懒加载，不然加载太慢
             });
         })();
     </script>
@@ -388,6 +395,7 @@
                     );
                 });
 
+                // 这块好像是之前套模板忘删了...懒得改了，反正不影响
                 const productCards = document.querySelectorAll('.product-card');
                 productCards.forEach((card, i) => {
                     gsap.fromTo(card, 
@@ -441,7 +449,7 @@
                     );
                 });
 
-       
+                // 这个视差效果调了一下午，终于不晃了
                 const parallaxImgs = document.querySelectorAll('.parallax-img img, .artisan-img img');
                 parallaxImgs.forEach(img => {
                     const container = img.parentElement;
@@ -458,7 +466,7 @@
                     });
                 });
 
-              
+                // 最后必须刷一下，不然动画不触发，坑死我了
                 ScrollTrigger.refresh();
             });
         })();

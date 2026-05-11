@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Accordion</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: #000;
+overflow: hidden;
+height: 100vh;
+width: 100vw; 
+margin: 0 !important; 
+}
+.container {
+width: 100vw !important; 
+height: 100vh !important; 
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+}
+
+
+.strip {
+width: 3vw;
+height: 45vh;
+margin: 0 0.3vw;
+transition: all 0.6s ease;
+}
+
+.click-tip {
+position: absolute;
+bottom: 15%;
+left: 50%;
+transform: translateX(-50%);
+color: rgba(255, 255, 255, 0.9);
+font-size: 18px;
+font-family: "方正粗黑宋简体", "FZHeiSongS-R-GB", SimSun, serif;
+letter-spacing: 2px;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+z-index: 35;
+opacity: 1;
+transition: opacity 0.2s ease;
+cursor: pointer;
+}
+
+.click-tip:hover {
+text-decoration: underline;
+text-decoration-color: rgba(255, 255, 255, 0.8);
+text-underline-offset: 4px;
+text-decoration-thickness: 1px;
+}
+
+.click-tip.hidden {
+opacity: 0;
+pointer-events: none;
+}
+.strip img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.hide_garbage_strips .strip:not(.video) {
+opacity: 0;
+transition: transform 0.8s ease, opacity 0.8s ease;
+}
+.hide_garbage_strips .strip:not(.video):nth-child(-n+7) {
+transform: translateX(-100vw);
+}
+.hide_garbage_strips .strip:not(.video):nth-child(n+9) {
+transform: translateX(100vw);
+}
+
+
+.strip.video {
+width: 100vw !important;
+height: 100vh !important;
+position: fixed !important; 
+top: 0 !important;
+left: 0 !important;
+transform: none !important; 
+z-index: 10;
+overflow: hidden;
+background: #000;
+}
+.expand .strip.video {
+width: 100vw !important;
+height: 100vh !important;
+position: fixed !important;
+top: 0 !important;
+left: 0 !important;
+transform: none !important;
+margin: 0 !important;
+z-index: 15;
+}
+
+.strip.video video {
+width: 100vw !important; 
+height: 100vh !important; 
+object-fit: cover !important;
+object-position: center center; 
+position: absolute;
+top: 0;
+left: 0;
+}
+
+
+
+.sound-btn {
+position: fixed;
+bottom: 50px;
+right: 50px;
+z-index: 9999;
+width: 40px;
+height: 40px;
+background: rgba(0,0,0,0.8);
+border: 1px solid rgba(255,255,255,0.8);
+border-radius: 50%;
+color: #fff;
+font-size: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+}
+.sound-btn:hover {
+background: rgba(255,255,255,0.2);
+transform: scale(1.05);
+}
+
+
+.title {
+position: absolute;
+top: 11%;
+left: 50%;
+transform: translateX(-50%);
+color: rgba(255, 255, 255, 0.85);
+font-size: 33px;
+font-weight: 300;
+font-family: "Microsoft YaHei", sans-serif;
+text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+padding: 6px 22px;
+border: 3px solid rgba(255, 255, 255, 0.7);
+border-radius: 40px;
+background: transparent;
+opacity: 1;
+transition: all 1.4s ease 0.6s;
+z-index: 30;
+cursor: pointer;
+text-decoration: none;
+}
+.expand .title {
+opacity: 1;
+}
+.title:hover {
+text-decoration: underline;
+text-decoration-color: rgba(255, 255, 255, 0.7);
+text-underline-offset: 6px;
+text-decoration-thickness: 1px;
+}
+
+.bottom-logo {
+position: absolute;
+bottom: 5%;
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+color: #fff;
+opacity: 1;
+transition: opacity 1.2s ease;
+z-index: 30;
+}
+
+
+.bottom-logo .icon {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 2px;
+height: 16px;
+margin-bottom: 4px;
+}
+.bottom-logo .icon span {
+width: 1.5px;
+background: #fff;
+border-radius: 1px;
+}
+
+.bottom-logo .icon span:nth-child(1) { height: 16px; }
+.bottom-logo .icon span:nth-child(2) { height: 14px; }
+.bottom-logo .icon span:nth-child(3) { height: 12px; }
+.bottom-logo .icon span:nth-child(4) { height: 10px; }
+.bottom-logo .icon span:nth-child(5) { height: 8px; }
+.bottom-logo .icon span:nth-child(6) { height: 10px; }
+.bottom-logo .icon span:nth-child(7) { height: 12px; }
+.bottom-logo .icon span:nth-child(8) { height: 14px; }
+.bottom-logo .icon span:nth-child(9) { height: 16px; }
+
+.bottom-logo .text {
+font-size: 12px;
+letter-spacing: 2px;
+}
+.expand .bottom-logo {
+opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="strip video">
+<video autoplay loop playsinline muted>
+<source src="./assets/video1.mp4" type="video/mp4">
+</video>
+</div>
+
+
+<div class="title" onclick="window.location.href='second1.html'" >织锦展示</div>
+<div class="bottom-logo">
+<div class="icon">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+<div class="text">THE CHARM OF BROCADE</div>
+</div>
+</div>
+
+<script>
+const video = document.querySelector('.strip.video video');
+
+video.muted = true;
+
+
+function toggleSound() {
+  video.muted = !video.muted;
+}
+
+
+window.onload = function() {
+  video.style.width = window.innerWidth + 'px';
+  video.style.height = window.innerHeight + 'px';
+};
+</script>
+
+
+<button class="sound-btn" onclick="toggleSound()">
+  🔊
+</button>
+
+</body>
+</html>

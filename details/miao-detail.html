@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗锦 · 锦绣苗疆 </title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        daiBlue: '#006699',
+                        daiRed: '#E64340',
+                        daiGreen: '#2E8B57',
+                        daiBeige: '#F5F0E1',
+                        daiDark: '#2D3E40',
+                        miaoRed:'#C8102E'
+                    },
+                    fontFamily: {
+                        song: ['STSong', 'SimSun', 'Microsoft YaHei', 'serif'],
+                        han: ['STKaiti', 'KaiTi', 'STSong', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23006699' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            }
+            .border-dai {
+                border-image: linear-gradient(to right, #006699, #8b1c1b) 1;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        html, body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+  
+        ::selection {
+            background: #006699;
+            color: #F5F0E1;
+        }
+   
+        .split-char {
+            will-change: transform, opacity;
+        }
+ 
+    </style>
+</head>
+<body class="bg-daiBeige text-daiDark font-song">
+
+ 
+    <header class="fixed top-0 w-full bg-miaoRed/95 text-white z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-han font-bold">苗锦 <span class="text-sm md:text-base font-normal">锦绣苗疆</span></h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="../second1.html">返回上一页</a></li>
+                    <li><a href="#origin" class="hover:text-daiRed transition-colors">历史溯源</a></li>
+                    <li><a href="#craft" class="hover:text-daiRed transition-colors">工艺流程</a></li>
+                    <li><a href="#artisan" class="hover:text-daiRed transition-colors">匠人故事</a></li>
+                    <li><a href="#handmade" class="hover:text-daiRed transition-colors">匠心手作</a></li>
+                    <li><a href="#analysis" class="hover:text-daiRed transition-colors">消费分析</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-2xl" id="menuBtn"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="md:hidden hidden bg-daiDark/90 w-full" id="mobileMenu">
+            <ul class="px-4 py-2 flex flex-col space-y-3">
+                <li><a href="../second1.html">返回上一页</a></li>
+                <li><a href="#origin" class="py-2 hover:text-daiRed transition-colors">历史溯源</a></li>
+                <li><a href="#craft" class="py-2 hover:text-daiRed transition-colors">工艺流程</a></li>
+                <li><a href="#artisan" class="py-2 hover:text-daiRed transition-colors">匠人故事</a></li>
+                <li><a href="#handmade" class="py-2 hover:text-daiRed transition-colors">匠心手作</a></li>
+                <li><a href="#analysis" class="py-2 hover:text-daiRed transition-colors">消费分析</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <section class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('../assets/images/miaokaiping.jpg');">
+        <div class="absolute inset-0 bg-daiDark/60"></div>
+        <div class="container mx-auto px-4 text-center text-white relative z-10">
+            <h2 class="text-4xl md:text-6xl font-han font-bold mb-4 text-shadow" id="heroTitle">苗家织锦</h2>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-shadow" id="heroSubtitle">一缕银纹，绣出苗疆盛景；万缕经纬，赓续千载匠心</p>
+            <a href="#origin" class="inline-block bg-daiRed hover:bg-daiRed/80 text-white px-8 py-3 rounded-lg font-bold transition-colors shadow-lg">探寻苗锦之美</a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#origin" class="text-white text-3xl"><i class="fa fa-angle-down"></i></a>
+        </div>
+    </section>
+
+   
+    <section id="origin" class="py-16 bg-pattern">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <div class="md:w-1/2">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-3 pb-2 border-b-2 border-daiRed w-fit split-trigger">苗锦溯源</h3>
+            <p class="text-lg leading-relaxed mb-2">一据考古与文献记载，苗锦最早出现于公元前5世纪苗族聚居地，隋唐时期已形成基本工艺；宋代《溪蛮丛笑》、明代《黔记》等文献均描述了苗族织锦技艺。</p>
+            <p class="text-lg leading-relaxed mb-2">20世纪90年代前，以母传女的方式世代相传，盛行不衰；明清时期，苗锦成为婚嫁礼品（如外婆赠外孙背带），并随苗族迁徙传播至云贵高原等地。</p>
+          </div>
+          <div class="md:w-1/2 rounded-lg overflow-hidden shadow-2xl parallax-img">
+            <img src="../assets/images/miaoimage.jpg" alt="苗锦古织机与传统纹样" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="craft" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">工艺之美</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiBlue rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-leaf"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">原料与染色</h4>
+                    <p class="text-center leading-relaxed">主要采用当地所产的蚕丝、苎麻、木棉等纤维染彩编织形成。染料多采用天然植物提取，如蓝靛、红花、紫草等。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiRed rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-paint-brush"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">图案构思与设计</h4>
+                    <p class="text-center leading-relaxed">图案丰富多样，包括动物纹、植物纹、天象纹、器物纹、几何纹等。纹样以寓意吉祥的花草、动物排列在几何形框架内，多用小型几何纹样。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiGreen rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-scissors"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">织造工艺与技法</h4>
+                    <p class="text-center leading-relaxed">挑织：将牵好的经线上筘，用光滑竹片按照花纹需要向经线逐一挑通，然后掷梭引进一根纬线，拉筘拍紧。主要流行于贵州台江、剑河、凯里等地。</p>
+机织：使用织布机，综线至少五个，每个综线都联着一块踩板，脚踏踩板牵动综线交错上下分开经纱，依次进行织造。</p>
+编织：以手代替挑板或综线来交错上下分开经线，可随身携带操作，适合宽一寸以下而经线较粗的锦带。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow md:col-span-3 craft-card">
+                    <div class="w-16 h-16 bg-daiDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-cog"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">工艺特征</h4>
+                    <p class="text-center leading-relaxed max-w-3xl mx-auto">采用"通经断纬"法，彩纬充分覆盖在织物表面，正面色彩艳丽。制作过程极为精细耗时，即使是熟练工匠，每天也只能织出寸许，因此产量稀少且价格昂贵。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section id="artisan" class="py-20 bg-pattern">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">匠人故事</h3>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">以线为媒，以手为筑，择一事终老，守一生初心</p>
+            <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
+                <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
+                    <img src="../assets/images/miaojiang1.png" alt="苗锦匠人潘英" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                </div>
+                <div class="md:w-2/3 artisan-text">
+                    <h4 class="text-2xl font-bold text-daiRed mb-4">潘英 · 苗锦技艺国家级代表性传承人</h4>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">潘英（1956年5月－），苗族，贵州省凯里市舟溪镇曼洞村青曼苗寨村民，苗族织锦技艺传承人。她自2016年创立苗服织锦刺绣店以来，通过开展技艺培训等方式推动非遗传承，其工坊既是生产场所也是文化展示窗口 。2025年3月12日入选第六批国家级非物质文化遗产代表性传承人名单 ，其制作的"舟溪式"苗族服饰以中短裙和繁复头饰著称，被誉为"穿在身上的史书" 。</p>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">2025年3月12日，经文化和旅游部认定，潘英入选第六批国家级非物质文化遗产代表性传承人名单 。此前她于2024年10月已拥有省级传承人身份 。</p>
+                    <p class="text-base md:text-lg leading-relaxed">针对"年轻人不愿学、老年人记不住"的传承困境，潘英采取以下措施：将苗族织锦工艺精细复杂，每天仅能织五厘米左右，完成一条背带需一个多月；建立标准化生产流程并培养传承人；推动织锦产品商业化转型 </p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
+                    <img src="../assets/images/miaojiang2.png" alt="苗锦匠人张艳梅" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                </div>
+                <div class="md:w-2/3 artisan-text">
+                    <h4 class="text-2xl font-bold text-daiRed mb-4">张艳梅 · 苗绣出山 助残同行</h4>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">张艳梅，1977年生，贵州省黔东南苗族侗族自治州台江县人，苗族刺绣传承人。3岁时因患脊髓灰质炎导致双下肢残疾，7岁随母亲学习苗绣，掌握多种刺绣技法和染布工艺。她于20世纪90年代从北京返回家乡，继承母亲技艺，致力于苗绣的传承与创新，带动当地残疾妇女灵活就业。2024年，其作品亮相巴黎残奥会，并参与苏格兰威士忌限定包装设计。</p>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">张艳梅深入黔东南地区收集上百片苗族绣花母本，最老的母本已有200多年历史。她采用订单式生产，带动9个乡镇30余名残疾绣娘灵活就业，月均收入近2000元。她还开展苗绣培训，三年累计培养残疾绣娘/郎150余人。通过电商直播、线上教学等方式拓展市场，产品远销海内外。</p>
+                    <p class="text-base md:text-lg leading-relaxed">张艳梅坚持“做苗族人自己的东西”，致力于将苗绣技艺转化为残疾人谋生的技能，推动“活态传承”，助其“活得漂亮且自信”。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-12 bg-white"></div>
+
+   <!-- 3D模型展示区块 -->
+<section id="BLEND" class="py-20 bg-pattern bg-daiBeige">
+    <div class="container mx-auto px-4">
+        <!-- 引入谷歌官方3D模型预览js库 -->
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <!-- 设置3D容器宽高样式 -->
+        <style>model-viewer{width:100%;height:600px;}</style>
+        <!-- 3D模型播放器：加载glb模型、自动旋转、支持鼠标拖拽缩放旋转、开启阴影 -->
+        <model-viewer src="../assets/images/cloth.glb" auto-rotate camera-controls shadow-intensity="1"></model-viewer>
+    </div>
+</section>
+
+    <section id="analysis" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">苗锦消费分析</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">市场概况</h4>
+                    <p class="mb-2 font-semibold">市场规模持续扩容，内需为核心驱动力</p><p class="mb-3 leading-relaxed">2024年中国苗绣（含苗锦）产业市场规模达120亿元，2025年预计增至150亿元（同比增长12%），其中国内市场消费占比超70%，传统服饰类（占比45%）、家居装饰类（占比30%）是主力品类；出口额2024年约8亿美元，2025年预计达10亿元人民币（同比增长20%），东南亚、欧洲、美国是主要海外市场，仅东南亚就贡献苗绣出海90%的销售额。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">消费群体与需求</h4>
+                    <p class="mb-2 font-semibold">核心人群：</p><p class="mb-1">90后与00后是绝对主力，在淘宝和抖音的非遗消费人群中占比均过半。</p>
+• 他们既有文化认同，也追求个性表达与独特体验</p>
+                    <p class="mb-2 font-semibold">需求趋势：</p><p class="leading-relaxed">淘宝非遗连续2年成交额破千亿，且保持双位数增长。</p>
+• 苗绣：2025年天猫618期间商品同比增长42%。</p>
+• 抖音电商：一年售出非遗产品超65亿单。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">消费行为与渠道</h4>
+                    <p class="mb-2 font-semibold">销售渠道线上主导，线下文旅联动补充</p><p class="mb-3 leading-relaxed">线上渠道已成核心销售路径，2024年线上销售额占比60%，淘宝、京东、拼多多等电商平台是主阵地，部分企业还通过直播带货（如吉首湘苗锦服装店）、跨境电商（B2C模式）拓展市场，单厂线上月订单稳定在2000单左右；线下占比40%，集中在旅游景区商店、民族工艺品专卖店，依托文旅场景实现“体验式销售”，如云南、广西等地借游客流量带动苗锦产品作为纪念品销售。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">制约因素与优化方向</h4>
+                    <p class="mb-2 font-semibold">主要问题：</p><p class="mb-1">• 产品同质化与价值认知偏差。</p><p class="mb-1">• 国际市场拓展仍存短板。</p><p class="leading-relaxed">• 区域发展不均衡，供应链效率待提升。</p>
+                    <p class="mb-2 font-semibold">优化建议：</p><p class="mb-1">• 内容深耕，讲好品牌故事。</p><p class="mb-1">• 产品创新，拥抱当代生活。</p><p class="leading-relaxed">• 多元触达，打通线上线下。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-12 bg-white"></div>
+
+    <footer class="bg-miaoRed text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <h2 class="text-3xl font-han font-bold mb-4 md:mb-0">苗锦 <span class="text-sm font-normal">锦绣苗疆 · 非遗传承</span></h2>
+                <div class="flex space-x-6 text-2xl items-center">
+                    <a href="https://weixin.qq.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weixin"></i></a>
+                    <a href="https://weibo.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weibo"></i></a>
+                    <a href="https://www.douyin.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-music"></i></a>
+                    <a href="https://www.taobao.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-shopping-cart"></i></a>
+                    <img src="../assets/images/校标.jpg" alt="校标" class="w-12 h-auto ml-2 mix-blend-multiply">
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>© 2025 中央民族大学 所制</p>
+                <p class="mt-2 md:mt-0">本网页仅为苗锦文化展示，所有图片若有侵权请联系</p>
+            </div>
+        </div>
+    </footer>
+
+ 
+    <a href="#" class="fixed bottom-8 right-8 bg-daiBlue/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-daiRed transition-colors z-40" id="backToTop"><i class="fa fa-angle-up text-xl"></i></a>
+
+   
+    <script>
+        (function() {
+    
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+   
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-3');
+                } else {
+                    header.classList.add('py-3');
+                    header.classList.remove('py-2');
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        (function() {
+        
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                orientation: 'vertical',
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            const header = document.querySelector('header');
+            const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPos = targetEl.offsetTop - headerHeight - 10; 
+                        lenis.scrollTo(targetPos, { immediate: false, duration: 1.4 });
+                    }
+                });
+            });
+
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.addEventListener('DOMContentLoaded', () => {
+ 
+                const splitTitles = document.querySelectorAll('.split-trigger');
+                splitTitles.forEach(title => {
+             
+                    if (title.querySelector('.char')) return;
+                    const split = new SplitType(title, { types: 'chars', charClass: 'split-char' });
+         
+                    gsap.set(split.chars, { y: '100%', opacity: 0, rotate: 5 }); 
+           
+                    ScrollTrigger.create({
+                        trigger: title,
+                        start: 'top 85%',
+                        onEnter: () => {
+                            gsap.to(split.chars, {
+                                y: 0,
+                                opacity: 1,
+                                rotate: 0,
+                                duration: 1,
+                                stagger: { each: 0.03, from: 'start' },
+                                ease: 'power3.out',
+                            });
+                        },
+                        once: true, 
+                    });
+                });
+
+                const heroTitle = document.getElementById('heroTitle');
+                if (heroTitle) {
+                    const splitHero = new SplitType(heroTitle, { types: 'chars' });
+                    gsap.set(splitHero.chars, { y: 80, opacity: 0 });
+                    gsap.to(splitHero.chars, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1.2,
+                        stagger: 0.02,
+                        ease: 'back.out(1.2)',
+                        delay: 0.2,
+                    });
+                }
+                const heroSub = document.getElementById('heroSubtitle');
+                if (heroSub) {
+                    const splitSub = new SplitType(heroSub, { types: 'words' });
+                    gsap.set(splitSub.words, { y: 40, opacity: 0 });
+                    gsap.to(splitSub.words, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        stagger: 0.03,
+                        ease: 'power2.out',
+                        delay: 0.5,
+                    });
+                }
+
+  
+                const craftCards = document.querySelectorAll('.craft-card');
+                craftCards.forEach((card, index) => {
+                    gsap.fromTo(card, 
+                        { y: 60, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.8,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                end: 'top 30%',
+                                toggleActions: 'play none none none',
+                                once: true,
+                            },
+                            delay: index * 0.1,
+                        }
+                    );
+                });
+
+                const productCards = document.querySelectorAll('.product-card');
+                productCards.forEach((card, i) => {
+                    gsap.fromTo(card, 
+                        { y: 50, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.7,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                once: true,
+                            },
+                            delay: i * 0.15,
+                        }
+                    );
+                });
+
+                const analysisCards = document.querySelectorAll('.analysis-card');
+                analysisCards.forEach((card, i) => {
+                    gsap.fromTo(card, 
+                        { y: 40, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.6,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                once: true,
+                            },
+                            delay: i * 0.1,
+                        }
+                    );
+                });
+
+                const artisanTexts = document.querySelectorAll('.artisan-text');
+                artisanTexts.forEach((text, idx) => {
+                    gsap.fromTo(text, 
+                        { x: idx % 2 === 0 ? 50 : -50, opacity: 0 },
+                        {
+                            x: 0,
+                            opacity: 1,
+                            duration: 0.9,
+                            scrollTrigger: {
+                                trigger: text,
+                                start: 'top 80%',
+                                once: true,
+                            },
+                        }
+                    );
+                });
+
+       
+                const parallaxImgs = document.querySelectorAll('.parallax-img img, .artisan-img img');
+                parallaxImgs.forEach(img => {
+                    const container = img.parentElement;
+                    gsap.to(img, {
+                        y: () => (container.offsetHeight - img.offsetHeight) * 0.3,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: container,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                });
+
+              
+                ScrollTrigger.refresh();
+            });
+        })();
+    </script>
+</body>
+</html>

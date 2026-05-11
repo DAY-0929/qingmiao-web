@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傣锦 · 千年傣韵 </title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        daiBlue: '#006699',
+                        daiRed: '#E64340',
+                        daiGreen: '#2E8B57',
+                        daiBeige: '#F5F0E1',
+                        daiDark: '#2D3E40',
+                    },
+                    fontFamily: {
+                        song: ['STSong', 'SimSun', 'Microsoft YaHei', 'serif'],
+                        han: ['STKaiti', 'KaiTi', 'STSong', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            .bg-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23006699' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            }
+            .border-dai {
+                border-image: linear-gradient(to right, #006699, #8b1c1b) 1;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+        html, body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+  
+        ::selection {
+            background: #006699;
+            color: #F5F0E1;
+        }
+   
+        .split-char {
+            will-change: transform, opacity;
+        }
+ 
+    </style>
+</head>
+<body class="bg-daiBeige text-daiDark font-song">
+
+ 
+    <header class="fixed top-0 w-full bg-daiDark/95 text-white z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-han font-bold">傣锦 <span class="text-sm md:text-base font-normal">千年傣韵</span></h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="../second1.html">返回上一页</a></li>
+                    <li><a href="#origin" class="hover:text-daiRed transition-colors">历史溯源</a></li>
+                    <li><a href="#craft" class="hover:text-daiRed transition-colors">工艺流程</a></li>
+                    <li><a href="#artisan" class="hover:text-daiRed transition-colors">匠人故事</a></li>
+                    <li><a href="#handmade" class="hover:text-daiRed transition-colors">匠心手作</a></li>
+                    <li><a href="#analysis" class="hover:text-daiRed transition-colors">消费分析</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-2xl" id="menuBtn"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="md:hidden hidden bg-daiDark/90 w-full" id="mobileMenu">
+            <ul class="px-4 py-2 flex flex-col space-y-3">
+                <li><a href="../second1.html">返回上一页</a></li>
+                <li><a href="#origin" class="py-2 hover:text-daiRed transition-colors">历史溯源</a></li>
+                <li><a href="#craft" class="py-2 hover:text-daiRed transition-colors">工艺流程</a></li>
+                <li><a href="#artisan" class="py-2 hover:text-daiRed transition-colors">匠人故事</a></li>
+                <li><a href="#handmade" class="py-2 hover:text-daiRed transition-colors">匠心手作</a></li>
+                <li><a href="#analysis" class="py-2 hover:text-daiRed transition-colors">消费分析</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <section class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('../assets/images/kaiping.jpg');">
+        <div class="absolute inset-0 bg-daiDark/60"></div>
+        <div class="container mx-auto px-4 text-center text-white relative z-10">
+            <h2 class="text-4xl md:text-6xl font-han font-bold mb-4 text-shadow" id="heroTitle">傣家织锦</h2>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-shadow" id="heroSubtitle">一根彩线，织就傣乡山水；千缕经纬，传承千年非遗</p>
+            <a href="#origin" class="inline-block bg-daiRed hover:bg-daiRed/80 text-white px-8 py-3 rounded-lg font-bold transition-colors shadow-lg">探寻傣锦之美</a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#origin" class="text-white text-3xl"><i class="fa fa-angle-down"></i></a>
+        </div>
+    </section>
+
+   
+    <section id="origin" class="py-16 bg-pattern">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <div class="md:w-1/2">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-3 pb-2 border-b-2 border-daiRed w-fit split-trigger">傣锦溯源</h3>
+            <p class="text-lg leading-relaxed mb-2">傣锦是少数民族织锦之一。当地称"娑罗布"。汉代傣族属"哀牢"。距今已有近<span class="text-daiRed font-bold">两千年历史</span>，位列中国四大名锦之一，2008年被列入国家级非物质文化遗产名录。</p>
+            <p class="text-lg leading-relaxed mb-2">据文献记载汉时即已织造细布。如今，傣锦工艺在继承民族传统的基础上有了很大发展，傣锦的传统图案被不断发掘整理，并广泛用于筒帕、窗帘、被面、垫单、沙发垫等，芒市城镇及附近村寨涌现了一批傣锦织锦专业户、专业村。</p>
+          </div>
+          <div class="md:w-1/2 rounded-lg overflow-hidden shadow-2xl parallax-img">
+            <img src="../assets/images/dai-image.jpg" alt="傣锦古织机与老锦布" class="w-full max-h-[360px] object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="craft" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">工艺之美</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiBlue rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-leaf"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">原料与染色</h4>
+                    <p class="text-center leading-relaxed">傣锦织造以丝、棉为主要原料，兼用木棉、麻、毛等天然纤维。根据产品需求对原料进行纺线、染色处理，传统工艺多使用茜草、蓝靛等植物染料，可染出红、黑、翠绿等经典色彩。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiRed rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-paint-brush"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">图案构思与设计</h4>
+                    <p class="text-center leading-relaxed">傣锦图案多取材于孔雀、大象、佛塔、荷花等自然与宗教意象，由织女凭脑海构思，无需绘制图纸。创作时需将图案转化为经纬线编织逻辑，并通过成百上千根横绳在纹板（花本）上精确排布，一旦错位就会导致整幅图案出错。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow craft-card">
+                    <div class="w-16 h-16 bg-daiGreen rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-scissors"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">织造工艺与技法</h4>
+                    <p class="text-center leading-relaxed">傣锦使用传统半机架式腰机或木架织机，以提花工艺进行织造。棉织锦常用通纬起花，即纬线连续织入；丝织锦则结合通纬与断纬起花，纬线分段织入，以此呈现更丰富的色彩与层次。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow md:col-span-3 craft-card">
+                    <div class="w-16 h-16 bg-daiDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4"><i class="fa fa-cog"></i></div>
+                    <h4 class="text-xl font-bold text-center mb-3">后期加工与成品</h4>
+                    <p class="text-center leading-relaxed max-w-3xl mx-auto">织成的锦料需经过整烫、裁剪等工序，最终制作成筒裙、被面、挎包、茶席等实用品与装饰品。一件精美的傣锦手工上衣，完整制作通常需要一周以上时间。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="artisan" class="py-20 bg-pattern">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">匠人故事</h3>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">以线为媒，以手为艺，一生择一事，一事守一生</p>
+            <div class="flex flex-col md:flex-row items-center gap-8 mb-16">
+                <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
+                    <img src="../assets/images/工匠1.png" alt="傣锦匠人咪宰金" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                </div>
+                <div class="md:w-2/3 artisan-text">
+                    <h4 class="text-2xl font-bold text-daiRed mb-4">咪宰金 · 傣锦非遗传承人</h4>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">咪宰金，这位95岁高龄的老人，是云南省江城县傣族织锦非物质文化遗产的省级项目传承人。</p>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">自17岁起，她便踏上了织锦的学习之旅，并在20岁时开始探索创新工艺，不断精进织锦技艺。如今，她虽已至耄耋之年，却依旧保持着旺盛的精力与敏锐的洞察力，那双布满皱纹的双手依然巧妙地操控着织锦的每一个细节。</p>
+                    <p class="text-base md:text-lg leading-relaxed">咪宰金阿奶坚定地表示，无论族人、村民还是外来者，只要对这门技艺怀有热爱与兴趣，她都愿意倾囊相授，确保这项宝贵的技艺能够得以传承，永不消逝。</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="md:w-1/3 rounded-lg overflow-hidden shadow-2xl artisan-img">
+                    <img src="../assets/images/工匠2.png" alt="傣锦匠人孔丽" class="w-full h-auto hover:scale-110 transition-transform duration-700 ease-in-out">
+                </div>
+                <div class="md:w-2/3 artisan-text">
+                    <h4 class="text-2xl font-bold text-daiRed mb-4"> 孔丽· 傣锦创新人</h4>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">孔丽是云南德宏芒市傣锦梦想工坊的带头人，同时也是深圳市民族团结发展促进会副会长和福田区民族团结发展促进会会长‌。</p>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">她从小跟随奶奶学习织锦，致力于保护濒临失传的傣族文化。孔丽带领团队将傣锦元素融入耳环、相框、茶席、抱枕等日常用品中，使传统工艺兼具民族特色与现代实用性‌。</p>
+                    <p class="text-base md:text-lg leading-relaxed mb-3">例如，在文博会上展示的文创产品，让非遗“活”在当下‌。她加入“天才妈妈”公益项目后，获得市场渠道和资源支持，从村寨走向城市舞台，提升了傣锦的知名度‌。</p>
+                      <p class="text-base md:text-lg leading-relaxed mb-3">她还自建民族非遗馆，免费向公众开放，并搭建深圳与云南德宏州的文化交流平台，促进非遗“活态化”传承‌与转化，如抢救古老花纹和汇集上百款花色‌。</p>
+                    <p class="text-base md:text-lg leading-relaxed">孔丽的工作被民族画报等媒体报道，其项目“福田区少数民族‘适应·融入’国际化、现代化”获国家民委肯定，并入选中宣部“砥砺奋进的五年”大型成就展‌。她证明公益力量与传统智慧的结合，不仅能守住民族文化之根，还能赋能女性在时代浪潮中实现自我价值‌。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-12 bg-white"></div>
+    <section id="analysis" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-han font-bold text-daiBlue mb-10 pb-2 border-b-2 border-daiRed w-fit mx-auto text-center split-trigger">傣锦消费分析</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">市场概况</h4>
+                    <p class="mb-2 font-semibold">规模特征：</p><p class="mb-3 leading-relaxed">傣锦市场"小而精"，核心手工傣锦年产值近3000万元，单价800元/米起，高端定制款超5000元/米；年增长率10%以上，文旅融合与电商是主要增长动力。</p>
+                    <p class="mb-2 font-semibold">政策支持：</p><p class="leading-relaxed">国家非遗振兴计划与地方专项补贴助力产业发展，税收优惠降低企业成本，人才培育缓解技艺传承压力。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">消费群体与需求</h4>
+                    <p class="mb-2 font-semibold">核心人群：</p><p class="mb-1">• 文化收藏者（35%）：35-55岁高收入群体，注重工艺纯度，客单价2000元以上；</p><p class="mb-1">• 文旅游客（40%）：25-45岁，偏好便携衍生品，客单价300-800元；</p><p class="mb-3">• 时尚青年（25%）：25-35岁，喜欢传统与现代结合产品，依赖线上购买。</p>
+                    <p class="mb-2 font-semibold">需求趋势：</p><p class="leading-relaxed">定制化、环保实用、体验式消费成为主流。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">消费行为与渠道</h4>
+                    <p class="mb-2 font-semibold">决策关键：</p><p class="mb-3 leading-relaxed">优先关注"纯手工+非遗属性"，其次是设计实用性与品牌信任度。</p>
+                    <p class="mb-2 font-semibold">渠道分布：</p><p class="leading-relaxed">线下占60%（景区门店、非遗展厅、体验工坊），线上占40%（抖音、京东等），跨界合作成新增长点。</p>
+                </div>
+                <div class="bg-daiBeige rounded-lg overflow-hidden shadow-lg p-6 analysis-card">
+                    <h4 class="text-xl font-bold text-daiBlue mb-4">制约因素与优化方向</h4>
+                    <p class="mb-2 font-semibold">主要问题：</p><p class="mb-3 leading-relaxed">产能有限、成本高、品牌知名度低、产品同质化、缺乏统一标准。</p>
+                    <p class="mb-2 font-semibold">优化建议：</p><p class="mb-1">• 产品端：分档生产，开发轻量化、多场景产品；</p><p class="mb-1">• 品牌端：打造非遗IP，建立溯源体系；</p><p class="mb-1">• 渠道端：线上线下联动，拓展B端定制市场；</p><p class="leading-relaxed">• 政策端：完善行业标准，加大创新扶持。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full h-12 bg-white"></div>
+
+    <footer class="bg-daiDark text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <h2 class="text-3xl font-han font-bold mb-4 md:mb-0">傣锦 <span class="text-sm font-normal">千年傣韵 · 非遗传承</span></h2>
+                <div class="flex space-x-6 text-2xl items-center">
+                    <a href="https://weixin.qq.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weixin"></i></a>
+                    <a href="https://weibo.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-weibo"></i></a>
+                    <a href="https://www.douyin.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-music"></i></a>
+                    <a href="https://www.taobao.com" target="_blank" class="hover:text-daiRed transition-colors"><i class="fa fa-shopping-cart"></i></a>
+                    <img src="../assets/images/校标.jpg" alt="校标" class="w-12 h-auto ml-2 mix-blend-multiply">
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>© 2025 中央民族大学 所制</p>
+                <p class="mt-2 md:mt-0">本网页仅为傣锦文化展示，所有图片若有侵权请联系</p>
+            </div>
+        </div>
+    </footer>
+
+ 
+    <a href="#" class="fixed bottom-8 right-8 bg-daiBlue/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-daiRed transition-colors z-40" id="backToTop"><i class="fa fa-angle-up text-xl"></i></a>
+
+   
+    <script>
+        (function() {
+    
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+   
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-3');
+                } else {
+                    header.classList.add('py-3');
+                    header.classList.remove('py-2');
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        (function() {
+        
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+                orientation: 'vertical',
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            const header = document.querySelector('header');
+            const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPos = targetEl.offsetTop - headerHeight - 10; 
+                        lenis.scrollTo(targetPos, { immediate: false, duration: 1.4 });
+                    }
+                });
+            });
+
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.addEventListener('DOMContentLoaded', () => {
+ 
+                const splitTitles = document.querySelectorAll('.split-trigger');
+                splitTitles.forEach(title => {
+             
+                    if (title.querySelector('.char')) return;
+                    const split = new SplitType(title, { types: 'chars', charClass: 'split-char' });
+         
+                    gsap.set(split.chars, { y: '100%', opacity: 0, rotate: 5 }); 
+           
+                    ScrollTrigger.create({
+                        trigger: title,
+                        start: 'top 85%',
+                        onEnter: () => {
+                            gsap.to(split.chars, {
+                                y: 0,
+                                opacity: 1,
+                                rotate: 0,
+                                duration: 1,
+                                stagger: { each: 0.03, from: 'start' },
+                                ease: 'power3.out',
+                            });
+                        },
+                        once: true, 
+                    });
+                });
+
+                const heroTitle = document.getElementById('heroTitle');
+                if (heroTitle) {
+                    const splitHero = new SplitType(heroTitle, { types: 'chars' });
+                    gsap.set(splitHero.chars, { y: 80, opacity: 0 });
+                    gsap.to(splitHero.chars, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1.2,
+                        stagger: 0.02,
+                        ease: 'back.out(1.2)',
+                        delay: 0.2,
+                    });
+                }
+                const heroSub = document.getElementById('heroSubtitle');
+                if (heroSub) {
+                    const splitSub = new SplitType(heroSub, { types: 'words' });
+                    gsap.set(splitSub.words, { y: 40, opacity: 0 });
+                    gsap.to(splitSub.words, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        stagger: 0.03,
+                        ease: 'power2.out',
+                        delay: 0.5,
+                    });
+                }
+
+  
+                const craftCards = document.querySelectorAll('.craft-card');
+                craftCards.forEach((card, index) => {
+                    gsap.fromTo(card, 
+                        { y: 60, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.8,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                end: 'top 30%',
+                                toggleActions: 'play none none none',
+                                once: true,
+                            },
+                            delay: index * 0.1,
+                        }
+                    );
+                });
+
+                const productCards = document.querySelectorAll('.product-card');
+                productCards.forEach((card, i) => {
+                    gsap.fromTo(card, 
+                        { y: 50, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.7,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                once: true,
+                            },
+                            delay: i * 0.15,
+                        }
+                    );
+                });
+
+                const analysisCards = document.querySelectorAll('.analysis-card');
+                analysisCards.forEach((card, i) => {
+                    gsap.fromTo(card, 
+                        { y: 40, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.6,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 85%',
+                                once: true,
+                            },
+                            delay: i * 0.1,
+                        }
+                    );
+                });
+
+                const artisanTexts = document.querySelectorAll('.artisan-text');
+                artisanTexts.forEach((text, idx) => {
+                    gsap.fromTo(text, 
+                        { x: idx % 2 === 0 ? 50 : -50, opacity: 0 },
+                        {
+                            x: 0,
+                            opacity: 1,
+                            duration: 0.9,
+                            scrollTrigger: {
+                                trigger: text,
+                                start: 'top 80%',
+                                once: true,
+                            },
+                        }
+                    );
+                });
+
+       
+                const parallaxImgs = document.querySelectorAll('.parallax-img img, .artisan-img img');
+                parallaxImgs.forEach(img => {
+                    const container = img.parentElement;
+                    gsap.to(img, {
+                        y: () => (container.offsetHeight - img.offsetHeight) * 0.3,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: container,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                });
+
+              
+                ScrollTrigger.refresh();
+            });
+        })();
+    </script>
+</body>
+</html>
